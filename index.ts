@@ -10,11 +10,7 @@ interface Movie {
 interface Country {
   Name: string;
   population: string;
-  currencies: {
-    key: {
-      name: string;
-    };
-  };
+  currencies: Record<string, { name: string; symbol: string }>;
 }
 
 // const moovieUrl: string = "http://www.omdbapi.com/?i=tt3896198&apikey=d0af46ab";
@@ -59,7 +55,7 @@ getActors("Avatar").then((x) => console.log(x));
 
 async function currency(country: string): Promise<string> {
   const cont: Country[] = await getCountry(country);
-  return cont[0].currencies[Object.keys(cont[0].currencies)[0]].name; ///////
+  return cont[0].currencies[Object.keys(cont[0].currencies)[0]].name;
 }
 
 async function getcurrency(title: string): Promise<string> {

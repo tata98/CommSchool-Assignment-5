@@ -154,7 +154,6 @@ function getPopulation(country) {
                 case 0: return [4 /*yield*/, getCountry(country)];
                 case 1:
                     count = _a.sent();
-                    console.log(count[0].population);
                     return [2 /*return*/, Number(count[0].population)];
             }
         });
@@ -169,7 +168,6 @@ function getCountryPopulation(title) {
                 case 1:
                     movie = _a.sent();
                     country = movie.Country.split(", ")[0];
-                    console.log(country);
                     return [2 /*return*/, getPopulation(country)];
             }
         });
@@ -193,5 +191,5 @@ function getTotalPopulation(a, b, c) {
     });
 }
 getTotalPopulation("Avatar", "Interstelar", "harry potter").then(function (x) {
-    return console.log("result is:  " + x);
+    return console.log("total population is: " + x);
 });
